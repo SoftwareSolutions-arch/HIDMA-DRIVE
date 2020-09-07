@@ -1,0 +1,182 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding-left no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-blue medium-text" name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ 'CREATE_ROUTE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>{{ 'FROM' | translate }}</ion-label>
+    <ion-input clearInput class='auto-location full-input' [(ngModel)]='headerLocation'
+      (input)='onChangeLocation($event.target.value)' required></ion-input>
+
+    <!-- <div *ngIf="headerLocation.invalid && (headerLocation.dirty || headerLocation.touched)" class="alert alert-danger">
+        <div *ngIf="headerLocation.errors.required">
+          Name is required.
+        </div>
+      </div> -->
+  </ion-item>
+
+  <div class="location-option" *ngFor="let item of this.autocompleteItemsSearch" tappable
+    (click)="chooseItemSource(item)">
+    <div>{{item.description}}</div>
+  </div>
+
+  <ion-item style="margin-top: 16px;">
+    <ion-label floating>{{ 'DESTINATION' | translate }}</ion-label>
+    <ion-input clearInput class='auto-location full-input' [(ngModel)]='headerLocations'
+      (input)='onChangeLocations($event.target.value)' required></ion-input>
+  </ion-item><br>
+
+
+  <div class="location-option" *ngFor="let item of this.autocompleteItemsSearchs" tappable
+    (click)="chooseItemSources(item)">
+    <div>{{item.description}}</div>
+  </div>
+
+  <div class="row">
+    <ion-item style="width: 50%;">
+      <ion-label floating no-lines>{{ 'DEPARTURE_TIME' | translate }}</ion-label>
+      <ion-datetime class='auto-location' displayFormat="HH:mm" [(ngModel)]="depatureTime" required></ion-datetime>
+    </ion-item>
+
+    <ion-item style="width: 50%;">
+      <ion-label floating no-lines>{{ 'ARRIVAL_TIME' | translate }}</ion-label>
+      <ion-datetime class='auto-location' displayFormat="HH:mm" [(ngModel)]="arrivalTime" required></ion-datetime>
+    </ion-item>
+  </div>
+  <ion-item style="margin-top: 16px;">
+    <ion-label floating no-lines>{{ 'DAYS' | translate }}</ion-label>
+    <ion-select multiple [(ngModel)]="days">
+      <ion-option value="1">{{ 'MONDAY' | translate }}</ion-option>
+      <ion-option value="2">{{ 'TUESDAY' | translate }}</ion-option>
+      <ion-option value="3">{{ 'WEDNESDAY' | translate }}</ion-option>
+      <ion-option value="4">{{ 'THURSDAY' | translate }} </ion-option>
+      <ion-option value="5">{{ 'FRIDAY' | translate }} </ion-option>
+      <ion-option value="6">{{ 'SATURDAY' | translate }}</ion-option>
+      <ion-option value="7">{{ 'SUNDAY' | translate }} </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item style="margin-top: 16px;">
+    <ion-label floating>{{ 'ASSISTANT_NAME' | translate }}</ion-label>
+    <ion-input class='auto-location full-input' [(ngModel)]="assistant_name" required></ion-input>
+  </ion-item>
+
+  <ion-item style="margin-top: 16px;">
+    <ion-label floating>{{ 'AGENCY_NAME' | translate }}</ion-label>
+    <ion-input class='auto-location full-input' [(ngModel)]="agency_name" required></ion-input>
+  </ion-item>
+
+  <ion-item style="margin-top: 16px;">
+    <ion-label floating>{{ 'PRICE_PER_SEAT' | translate }}</ion-label>
+    <ion-input [(ngModel)]="price_Seat" type="number" class='auto-location full-input'></ion-input>
+  </ion-item>
+
+
+  <ion-item style="margin-top: 16px;" no-lines *ngIf=isSeasonDiscountshow>
+    <p>{{ 'WANT_TO_GIVE_SEASON_DISCOUNT' | translate }}</p>
+    <button (click)="btn_reportlog()" ion-button class="btn-discount">Yes</button>
+    <button (click)="btn_deletlog()" ion-button class="btn-discount">No</button>
+  </ion-item>
+
+  <ion-item style="margin-top: 16px;" *ngIf=showSeasonDiscount>
+    <ion-label floating>{{ 'SEASON_DISCOUNT' | translate }}</ion-label>
+    <ion-input [(ngModel)]="discount" class='auto-location full-input'></ion-input>
+  </ion-item>
+
+  <div style="margin-top: 16px;">
+    <ion-item no-lines>
+      <p item-left>{{ 'SELECT_POPULAR_FACILITIES' | translate }}</p>
+    </ion-item>
+    <div class="row">
+      <span>
+        <ion-item no-lines>
+          <ion-label class="text-grey small-text">{{ 'AC' | translate }}</ion-label>
+          <ion-checkbox [(ngModel)]="isAcSelect" (click)="rememberMe(event)" style="margin-right: 5pt"></ion-checkbox>
+        </ion-item>
+      </span>
+      <span>
+        <ion-item no-lines>
+          <ion-label class="text-grey small-text">{{ 'WATER_BOTTLE' | translate }}</ion-label>
+          <ion-checkbox [(ngModel)]="isWaterBottleSelect" (click)="rememberMe(event)" style="margin-right: 5pt">
+          </ion-checkbox>
+        </ion-item>
+      </span>
+      <span>
+        <ion-item no-lines>
+          <ion-label class="text-grey small-text">{{ 'BLANKET' | translate }}</ion-label>
+          <ion-checkbox [(ngModel)]="isBlanketSelect" (click)="rememberMe(event)" style="margin-right: 5pt">
+          </ion-checkbox>
+        </ion-item>
+      </span>
+    </div>
+    <div class="row">
+      <span>
+        <ion-item no-lines>
+          <ion-label class="text-grey small-text">{{ 'MOVIE' | translate }}</ion-label>
+          <ion-checkbox [(ngModel)]="isMovieSelect" (click)="rememberMe(event)" style="margin-right: 5pt">
+          </ion-checkbox>
+        </ion-item>
+      </span>
+      <span>
+        <ion-item no-lines>
+          <ion-label class="text-grey small-text">{{ 'WIFI' | translate }}</ion-label>
+          <ion-checkbox [(ngModel)]="isWiFiSelect" (click)="rememberMe(event)" style="margin-right: 5pt"></ion-checkbox>
+        </ion-item>
+      </span>
+      <span>
+        <ion-item no-lines>
+          <ion-label class="text-grey small-text">{{ 'CHARGING_POINT' | translate }}</ion-label>
+          <ion-checkbox [(ngModel)]="isChargingPoint" (click)="rememberMe(event)" style="margin-right: 5pt">
+          </ion-checkbox>
+        </ion-item>
+      </span>
+    </div>
+    <ion-item no-lines style="margin-top: 10px;">
+      <div item-left class="header-function">{{ 'SELECT_JOURNEY_DATE' | translate }}</div>
+      <ion-toggle class="small-text" item-right (ionChange)="selectJourneyData($event)"></ion-toggle>
+      <div class="small-text" item-right>{{ 'ROUNDTRIP' | translate }}</div>
+    </ion-item>
+  </div><br>
+
+  <div *ngIf="roundTripForm">
+    <div class="row">
+      <ion-item style="width: 50%;">
+        <ion-label floating no-lines>{{ 'DEPARTURE_TIME' | translate }}</ion-label>
+        <ion-datetime class='auto-location' displayFormat="HH:mm" [(ngModel)]="depatureRoundTime"></ion-datetime>
+      </ion-item>
+
+      <ion-item style="width: 50%;">
+        <ion-label floating no-lines>{{ 'ARRIVAL_TIME' | translate }}</ion-label>
+        <ion-datetime class='auto-location' displayFormat="HH:mm" [(ngModel)]="arrivalRoundTime"></ion-datetime>
+      </ion-item>
+    </div>
+    <ion-item style="margin-top: 16px;">
+      <ion-label floating no-lines>{{ 'DAYS' | translate }}</ion-label>
+      <ion-select multiple [(ngModel)]="days_Round">
+        <ion-option value="1">{{ 'MONDAY' | translate }}</ion-option>
+        <ion-option value="2">{{ 'TUESDAY' | translate }}</ion-option>
+        <ion-option value="3">{{ 'WEDNESDAY' | translate }}</ion-option>
+        <ion-option value="4">{{ 'THURSDAY' | translate }} </ion-option>
+        <ion-option value="5">{{ 'FRIDAY' | translate }} </ion-option>
+        <ion-option value="6">{{ 'SATURDAY' | translate }}</ion-option>
+        <ion-option value="7">{{ 'SUNDAY' | translate }} </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- <ion-item style="margin-top: 16px;">
+      <ion-label floating>{{ 'ASSISTANT_NAME' | translate }}</ion-label>
+      <ion-input class='auto-location full-input' [(ngModel)]="assistant_Round_name"></ion-input>
+    </ion-item> -->
+  </div>
+  <div margin (click)="calculateAndDisplayRoute()">
+    <button class="save-btn" full round ion-button>{{ 'SAVE' | translate }}
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding-left no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-blue medium-text" name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ 'HOME' | translate }}</ion-title>
+    <ion-buttons end>
+      <button (click)="openNotifications()" padding ion-button icon-only>
+        <ion-icon class="text-blue medium-text" name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher> -->
+
+  <span [hidden]=showmap>
+    <div #mapElement id="mapElement" style="height:70%;width: 100%;">
+    </div>
+
+    <div class="main-div" no-margin *ngFor="let listItems of getListhomeData" >
+      <div *ngIf=HiddenWhenTap>
+        <button class="refresh-btn" ion-button clear (click)="refresh()">Refresh</button>
+        <ion-label class="small-text" style="text-align: center;font-weight: bold;padding-top: 3%;">
+          <!-- {{this.busStart}} Hours To Start</ion-label> -->
+          {{displayTime}} Hour To Start</ion-label>
+      </div>
+      <div style="margin-top: 5pt">
+        <ion-item no-lines>
+          <div class="row header">
+            <div class="col small-text">{{ 'SEAT_BOOKED' | translate }}</div>
+            <div class="col small-text">{{ 'DEPARTURE_TIME' | translate }}</div>
+            <div class="col small-text">{{ 'ARRIVAL_TIME' | translate }}</div>
+          </div>
+          <div class="row text-grey">
+            <div class="col large-text">{{listItems.seat_booked!==''?listItems.seat_booked:0}}</div>
+            <div class="col large-text">{{listItems.time_depart}}</div>
+            <div class="col large-text">{{listItems.time_arrive}}</div>
+          </div>
+        </ion-item>
+      </div>
+      <div margin-top>
+        <ion-item no-lines class="medium-text" style="min-height: 1rem;">
+          <ion-label>
+            <div class="dot"></div>
+            {{listItems.from_destination}} - Bus Station
+          </ion-label>
+        </ion-item>
+        <ion-item no-lines class="medium-text" style="min-height: 4rem;">
+          <ion-label>
+            <div class="square"></div>
+            {{listItems.to_destination}} - All Station
+          </ion-label>
+        </ion-item>
+      </div>
+      <div style="margin: 15pt 20pt 8pt 20pt" *ngIf=HiddenWhenTap>
+        <button class="background-blue medium-text" full round ion-button
+          (click)="tapToStartBooking()">{{ 'TAP_TO_START' | translate }}</button>
+      </div>
+      <div style="margin: 15pt 20pt 8pt 20pt" *ngIf=!HiddenWhenTap>
+        <button class="background-blue medium-text" full round ion-button
+          (click)="tapToEndBooking()">{{ 'TRIP_END' | translate }}</button>
+      </div>
+    </div>
+  </span>
+
+  <div [hidden]=showContent>
+    <div class="text-top text-black bold-font">You haven't created any route</div>
+    <div class="fab-button" (click)="addRoute()">
+      <ion-fab>
+        <button ion-fab color="primary">
+          <ion-icon ios="ios-add" md="md-add"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+    <div class="text-center text-blue big-text bold-font">Create Route</div>
+  </div>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <div class="forget-password">{{ 'WELCOME_BACK' | translate }}</div>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <ion-label>
+        <ion-img class="country-image" src={{this.countryFlagImage}}></ion-img>
+        <!-- <ion-icon style="margin-left: 35pt;margin-top: 2pt;" ios="ios-square-outline" md="ios-square-outline">
+        </ion-icon> -->
+      </ion-label>
+
+      <ion-select style="margin-left: 10%;" formControlName="countryCode" placeholder="+91" (ionChange)="onChange($event)">
+        <ion-option *ngFor="let flagList of countryCodeList" (ionSelect)="getFlagdetails(flagList)">
+          {{this.flagList.shortname}}({{this.flagList.countrycode}})
+        </ion-option>
+      </ion-select>
+
+      <ion-input style="padding-left: 16px;" class='auto-location full-input' type="number" clearInput
+        placeholder="{{ 'MOBILE_NO' | translate }}" formControlName="mobileNumber">
+      </ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.mobileNumber">
+        <div class="error-message" *ngIf="loginForm.get('mobileNumber').hasError(error.type) &&
+          (loginForm.get('mobileNumber').dirty || loginForm.get('mobileNumber').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+      <ion-input class='auto-location full-input' type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <div>
+      <ng-container *ngFor="let error of error_messages.password">
+        <div class="error-message"
+          *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+  </form>
+  <button padding class="bold-font big-text text-grey forget-btn" end clear
+    (click)="openForgotPassord()">{{ 'FORGOT_PASSWORD' | translate }}
+  </button>
+
+  <button padding class="send-btn" full round ion-button (click)="doLogin()"
+    [disabled]="!loginForm.valid">{{ 'LOGIN' | translate }}
+    <ion-spinner *ngIf="isLoading" margin-left name="ios" style="color: white !important;"></ion-spinner>
+  </button>
+
+  <button padding class="create-btn" full round ion-button
+    (click)="openSignUpPage()">{{ 'CREATE_AN_ACCOUNT' | translate }}
+  </button>
+</ion-content>

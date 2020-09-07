@@ -1,0 +1,47 @@
+page-history {
+  .title_content {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 13pt;
+  }
+
+  .right-item {
+    margin-left: 40pt;
+    display: inline-grid;
+  }
+
+  .left-item {
+    position: absolute;
+    left: 20px;
+  }
+
+  .ante-meridiem {
+    background: #bdbdbd6b;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding-right: 10px;
+    position: absolute;
+    top: 20pt;
+    color: #808080;
+  }
+
+  .pay_card {
+    margin-top: 3%;
+    color: #808080;
+  }
+
+  .end-item {
+    position: absolute;
+    right: 12pt;
+  }
+
+  .text-history {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 2px dashed #2c2b2a;
+    margin-top: 50%;
+  }
+}

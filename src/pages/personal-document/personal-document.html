@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{ 'PERSONAL_DOCUMENT' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <div class="rounded-input-div">
+        <div class="row">
+          <label>{{ 'BIRTH_CERTIFICATE' | translate }}</label>
+          <div *ngIf="!this.isbirthUpload">
+            <label for="birthid" class="upload_btn">{{ 'UPLOAD' | translate }}</label>
+          </div>
+          <div *ngIf="this.isbirthUpload">
+            <label for="birthid" class="upload_btn" style="float: right;">
+              <div class="text-black medium-text" style="font-size: 1.3rem;">
+                {{this.birthfile.name}}
+              </div>
+              <ion-icon ios="ios-trash" md="md-trash" class="trash-icon" (click)="deleteBirthImage()"></ion-icon>
+            </label>
+          </div>
+          <input type="file" (change)="birthCertificate($event)" name="birthid" id="birthid" class="fileInput" />
+        </div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="rounded-input-div">
+        <div class="row">
+          <label>{{ 'DRIVING_LICENCE' | translate }}</label>
+          <div *ngIf="!this.isdrivingUpload">
+            <label for="drivingid" class="upload_btn">{{ 'UPLOAD' | translate }}</label>
+          </div>
+          <div *ngIf="this.isdrivingUpload">
+            <label for="drivingid" class="upload_btn" style="float: right;">
+              <div class="text-black medium-text ">
+                {{this.drivingfile.name}}
+              </div>
+              <ion-icon ios="ios-trash" md="md-trash" class="trash-icon" (click)="deleteDrivingImage()"></ion-icon>
+            </label>
+          </div>
+          <input type="file" (change)="drivingCertificate($event)" name="drivingid" id="drivingid" class="fileInput" />
+        </div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="rounded-input-div">
+        <div class="row">
+          <label>{{ 'PASSPORT' | translate }}</label>
+          <div *ngIf="!this.ispassportUpload">
+            <label for="passportid" class="upload_btn">{{ 'UPLOAD' | translate }}</label>
+          </div>
+          <div *ngIf="this.ispassportUpload">
+            <label for="passportid" class="upload_btn" style="float: right;">
+              <div class="text-black medium-text ">
+                {{this.passportfile.name}}
+              </div>
+              <ion-icon ios="ios-trash" md="md-trash" class="trash-icon" (click)="deletePassportImage()"></ion-icon>
+            </label>
+          </div>
+          <input type="file" (change)="passportCertificate($event)" name="passportid" id="passportid"
+            class="fileInput" />
+        </div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="rounded-input-div">
+        <div class="row">
+          <label>{{ 'ELECTION_CARD' | translate }}</label>
+          <div *ngIf="!this.isElectionUpload">
+            <label for="electionid" class="upload_btn">{{ 'UPLOAD' | translate }}</label>
+          </div>
+          <div *ngIf="this.isElectionUpload">
+            <label for="electionid" class="upload_btn" style="float: right;">
+              <div class="text-black medium-text ">
+                {{this.electionfile.name}}
+              </div>
+              <ion-icon ios="ios-trash" md="md-trash" class="trash-icon" (click)="deleteElectionImage()"></ion-icon>
+            </label>
+          </div>
+          <input type="file" (change)="electionCertificate($event)" name="electionid" id="electionid"
+            class="fileInput" />
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <p class="tems_policy">{{ 'BY_CONTINUING' | translate }}</p>
+  <p class="tems_policy">
+    <span style="color: black;" (click)="termsAndconditions()">
+      {{ 'TERMS_CONDITIONS' | translate }}
+    </span> {{ 'AND' | translate }}
+    <span style="color: black;" (click)="privacyPolicy()">
+      {{ 'PRIVACY_POLICY' | translate }}
+    </span>
+  </p>
+  <button class="next-btn" full round ion-button (click)="next()">{{ 'NEXT' | translate }}
+    <!-- <ion-spinner *ngIf="isLoading" margin-left name="ios"></ion-spinner> -->
+  </button>
+
+</ion-content>

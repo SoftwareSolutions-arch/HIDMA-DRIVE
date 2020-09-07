@@ -1,0 +1,101 @@
+page-login {
+  .header.header-md {
+    border-bottom-right-radius: 7%;
+    background: #198A92;
+    min-height: 25%;
+    border-bottom-left-radius: 7%;
+  }
+
+  .header.header-ios {
+    border-bottom-right-radius: 7%;
+    background: #198A92;
+    min-height: 25%;
+    border-bottom-left-radius: 7%;
+  }
+
+  .toolbar {
+    contain: initial !important;
+  }
+
+  .header-md::after {
+    position: unset !important;
+  }
+
+  .toolbar-background-ios {
+    background: transparent !important;
+  }
+
+  .toolbar-background-md {
+    background: transparent !important;
+  }
+
+  .header-ios::after {
+    position: unset !important;
+  }
+
+  .text-white {
+    text-transform: none;
+  }
+
+  .forget-password {
+    text-align: center;
+    font-size: 2.9rem;
+    color: white;
+    margin-top: 16%;
+    margin-bottom: 16%;
+  }
+
+  .welcome-text {
+    color: white;
+    font-size: xx-large;
+    position: absolute;
+    top: 5%;
+    left: 22%;
+    right: auto;
+
+  }
+
+  .send-btn {
+    margin-top: 30%;
+    background: #198A92;
+  }
+
+  .forget-btn {
+    background: none !important;
+    float: right;
+    font-style: oblique;
+    margin-top: 3%;
+  }
+
+  .create-btn {
+    margin-top: 6%;
+    background-color: white;
+    color: #737373;
+    border: 1px solid #737373;
+  }
+
+  .country-image {
+    width: 20px !important;
+    height: 17px;
+  }
+
+  .country-image {
+    background: none;
+    position: absolute;
+    top: 35%;
+    left: 6%;
+  }
+
+  ion-spinner.spinner-ios line {
+    stroke: white;
+  }
+
+  ion-spinner.spinner-md line {
+    stroke: white;
+  }
+
+  .error-message {
+    margin-left: 13pt !important;
+  }
+
+}

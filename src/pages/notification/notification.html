@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{ 'NOTIFIACTION' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf=isShow>
+    <ion-refresher class="pull-refresh" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list no-lines *ngFor="let listdata of notificationList">
+      <ion-item>
+        <div class="row">
+          <div class="left-div">
+            <img class="user-img" [src]="this.image && this.image!==''?this.image:'assets/img/user1.png'">
+          </div>
+          <div class="right-div">
+            <span class="user-name medium-text">{{listdata.first_name}} {{listdata.last_name}}</span>
+            <span class="text-grey small-text time-details">{{listdata.created_at}}</span>
+            <span class="booking-details text-grey medium-text"
+              style="margin-top: 2%;position: absolute;">{{listdata.message}} {{listdata.created_at}}</span>
+          </div>
+        </div>
+        <span *ngIf="this.vechicleType==2 || this.vechicleType==3">
+          <button class="change-btn text-grey" round ion-button
+            (click)="cancelRide(listdata)">{{ 'DECLINE' | translate }}</button>
+          <button class="accept-btn text-grey" round ion-button style="float: right;"
+            (click)="acceptRide(listdata)">{{ 'ACCEPT' | translate }}</button>
+        </span>
+      </ion-item>
+    </ion-list>
+  </div>
+ <div *ngIf=!isShow>
+   <p class="text-history big-text">{{ 'NO_NOTIFICATION_NOW' | translate }}</p>
+ </div>
+</ion-content>

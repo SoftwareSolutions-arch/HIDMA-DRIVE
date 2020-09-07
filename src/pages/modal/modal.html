@@ -1,0 +1,15 @@
+<ion-content padding>
+  <div padding>
+    <div padding class="modal">
+      <div style="margin: 10pt" class="bold-font bigger-text" text-center>Ride Request</div>
+      <div class="big-text bold-font" text-center>Origin : {{this.value.from_destination}}</div>
+      <div class="big-text bold-font" text-center>Destination : {{this.value.to_destination}}</div>
+      <p class="para-text">Customer Name:<span class="text-right">{{this.value.username}}</span></p>
+      <p class="para-text">Mobile No.:<span class="text-right">{{this.value.phone}}</span></p>
+      <div class="row" text-center>
+        <div col-6><button ion-button (click)="cancelRide()" style="background-color: #ff000094;">Decline</button></div>
+        <div col-6><button ion-button (click)="acceptRide()">Accept</button></div>
+      </div>
+    </div>
+  </div>
+</ion-content>

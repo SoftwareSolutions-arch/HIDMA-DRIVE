@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "488138078609",
+    "firebase_url": "https://hidma-drive-54fe4.firebaseio.com",
+    "project_id": "hidma-drive-54fe4",
+    "storage_bucket": "hidma-drive-54fe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488138078609:android:a981ff6242fa7396904230",
+        "android_client_info": {
+          "package_name": "com.alpha.hidmadrives"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488138078609-d8mosso787b7ji3bckepdc6mfnk039lg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBx7Sme3Q0b7P_V7Rvv-EbdNv9MoUfDPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488138078609-d8mosso787b7ji3bckepdc6mfnk039lg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

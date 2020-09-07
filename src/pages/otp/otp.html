@@ -1,0 +1,32 @@
+<ion-content>
+
+  <div text-center>
+    <div class="top-div">
+      <ion-icon class="back-arrow text-white" (click)="back()" name="md-arrow-back"></ion-icon>
+      <img class="top-logo-img">
+      <h1 class="top-header text-white">Verification Code</h1>
+    </div>
+      <form [formGroup]="form">
+        <div class="enter-code text-grey" text-left>Enter Code</div>
+        <div class="row otp-input-row">
+          <div class="otp-round" text-center *ngFor="let input of formInput; index as i">
+            <input class="otp-input" #formRow type="text" formControlName="{{input}}" maxlength="1" (keyup)="keyUpEvent($event, i)">
+          </div>
+        </div>
+        <div class="row" margin-left>
+          <a><button (click)="resendOtp()" ion-button clear small class="small-text">
+            <ion-icon class="text-green" name="time"></ion-icon><span class="icon-text text-grey">Resend Code</span>
+          </button></a>
+          <a><button (click)="back()" ion-button clear small no-lines class="small-text">
+            <ion-icon class="text-green" name="md-create"></ion-icon><span class="icon-text text-grey">Edit Number</span>
+          </button></a>
+        </div>
+        <div text-center class="verify-btn-div">
+          <button (click)="onSubmit()" [disabled]="form.invalid" type="submit" ion-button full round>Verify
+            <ion-spinner *ngIf="isLoading" margin-left name="ios"></ion-spinner>
+          </button>
+        </div>
+      </form>
+  </div>
+</ion-content>
+

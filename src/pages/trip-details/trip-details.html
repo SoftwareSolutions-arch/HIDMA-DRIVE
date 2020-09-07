@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{ 'TRIP_DETAILS' | translate }}</ion-title>
+    <ion-buttons end>
+      <button (click)="openNotifications()" padding ion-button icon-only>
+        <ion-icon class="text-blue medium-text" name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-margin>
+    <ion-item no-lines>
+      <ion-label>
+        <div class="dot"></div>
+        {{this.transactionDetails.from_destination}}
+      </ion-label>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>
+        <div class="square"></div>
+        {{this.transactionDetails.to_destination}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div #mapElement id="mapElement" style="height:20%;width: 100%;">
+  </div><br>
+
+  <div class="bold-font big-text text-blue ">
+    <div text-center class="bold-font small-text text-blue amount">$</div>
+    <div text-center class="amount-details">
+      {{this.transactionDetails.total_amount}}
+    </div>
+  </div>
+
+  <div class="big-text text-grey" text-center>{{ 'PAYMENT_MADE_SUCCESSFULLY' | translate }}</div>
+
+  <div class="time-distance">
+    <div class="left-div" style="width: 50%;float: left;text-align: center;">
+      <!-- <div class="bold-font big-text "> {{this.transactionDetails.total_time}}</div> -->
+      <div class="bold-font big-text "> {{this.transactionDetails.total_time}}</div>
+      <div class="bold-font small-text text-grey">{{ 'TIME' | translate }} </div>
+    </div>
+    <div class="right-div" style="width: 50%;float: right;text-align: center;">
+      <div class="bold-font big-text "> {{this.transactionDetails.total_distance}}mi </div>
+      <!-- <div class="bold-font big-text ">{{this.transactionDetails.total_distance}} </div> -->
+      <div class="bold-font small-text text-grey">{{ 'DISTANCE' | translate }} </div>
+    </div>
+  </div>
+  <div class="table">
+    <div class="row header">
+      <div class="col" text-left>{{ 'DATE_TIME' | translate }}</div>
+      <div class="col" text-right>{{convertDate}}</div>
+    </div>
+    <div class="row">
+      <div class="col">{{ 'SERVICE_TYPE' | translate }}</div>
+      <div class="col" text-right>{{ 'SEDAN' | translate }}</div>
+    </div>
+    <div class="row">
+      <div class="col">{{ 'TRIP_TYPE' | translate }}</div>
+      <div class="col" text-right>{{ 'NORMAL' | translate }}</div>
+    </div>
+  </div>
+
+  <div style="background-color: #f2f5f7;">
+    <div class="medium-text receipt-details" text-left>{{ 'RECEIPT' | translate }}</div>
+  </div>
+
+  <div class="table-bottom">
+    <div class="row header">
+      <div class="col" text-left>{{ 'TRIP_FARES' | translate }}</div>
+      <div class="col" text-right>${{this.transactionDetails.fare}}</div>
+    </div>
+    <div class="row">
+      <div class="col">{{ 'BUS_FEE' | translate }}</div>
+      <div class="col" text-right>${{this.transactionDetails.bus_fee}}</div>
+    </div>
+    <div class="row">
+      <div class="col">+{{ 'TAX' | translate }}</div>
+      <div class="col" text-right>${{this.transactionDetails.tax}}</div>
+    </div>
+    <div class="row">
+      <div class="col">+{{ 'TOLLS' | translate }}</div>
+      <div class="col" text-right>${{this.transactionDetails.bus_fee}}</div>
+    </div>
+    <div class="row">
+      <div class="col">{{ 'DISCOUNT' | translate }}</div>
+      <div class="col" text-right>${{this.transactionDetails.discount}}</div>
+    </div>
+    <div class="row">
+      <div class="col">+ {{ 'TOPUP_ADDED' | translate }}</div>
+      <div class="col" text-right>${{this.transactionDetails.topup}}</div>
+    </div>
+  </div>
+  <div class="row" style="padding-bottom: 16px;">
+    <div class="big-text text-blue payment-details">{{ 'YOUR_PAYMENT' | translate }}</div>
+    <div class="big-text text-blue total-amount">${{this.transactionDetails.total_amount}}</div>
+  </div>
+</ion-content>

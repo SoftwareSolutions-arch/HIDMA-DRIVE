@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left (click)="backPage()">
+      <button padding-left no-margin ion-button>
+        <ion-icon style="zoom: 2;" class="big-text bold-font" ios="ios-arrow-round-back-outline" md="ios-arrow-round-back-outline">
+        </ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ 'ADD_VEHICLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="addVehicle">
+    <ion-item no-padding>
+      <ion-label floating>{{ 'VEHICLE_TYPE' | translate }}</ion-label>
+      <ion-select formControlName="vehicleType">
+        <ion-option *ngFor="let vehicleList of vehicleType" (ionSelect)="getvehicledetails(vehicleList)">
+          {{ vehicleList.vehicleName }}</ion-option>
+        <!-- <ion-option value='2'>{{ 'TAXI' | translate }}</ion-option>
+        <ion-option value='3'>{{ 'MOTORCYCLE' | translate }}</ion-option> -->
+      </ion-select>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.vehicleType">
+        <div class="error-message" *ngIf="addVehicle.get('vehicleType').hasError(error.type) &&
+      (addVehicle.get('vehicleType').dirty || addVehicle.get('vehicleType').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item no-padding>
+      <ion-label floating>{{ 'BRAND' | translate }}</ion-label>
+      <ion-input formControlName="brand" class='auto-location full-input'></ion-input>
+    </ion-item>
+
+    <!-- <div>
+      <ng-container *ngFor="let error of error_messages.brand">
+        <div class="error-message" *ngIf="addVehicle.get('brand').hasError(error.type) &&
+      (addVehicle.get('brand').dirty || addVehicle.get('brand').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div> -->
+
+    <ion-item no-padding>
+      <ion-label floating>{{ 'MODEL' | translate }}</ion-label>
+      <ion-input formControlName="model" class='auto-location full-input'></ion-input>
+    </ion-item>
+    <!-- 
+    <div>
+      <ng-container *ngFor="let error of error_messages.model">
+        <div class="error-message" *ngIf="addVehicle.get('model').hasError(error.type) &&
+      (addVehicle.get('model').dirty || addVehicle.get('model').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div> -->
+
+    <ion-item no-padding>
+      <ion-label floating>{{ 'MANUFACTURER' | translate }}</ion-label>
+      <ion-input formControlName="manufacturer" class='auto-location full-input'></ion-input>
+    </ion-item>
+    <!-- <div>
+      <ng-container *ngFor="let error of error_messages.manufacturer">
+        <div class="error-message" *ngIf="addVehicle.get('manufacturer').hasError(error.type) &&
+      (addVehicle.get('manufacturer').dirty || addVehicle.get('manufacturer').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div> -->
+    <ion-item no-padding>
+      <ion-label floating>{{ 'NUMBER_PLATE' | translate }}</ion-label>
+      <ion-input formControlName="number_plate" class='auto-location full-input'></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.number_plate">
+        <div class="error-message" *ngIf="addVehicle.get('number_plate').hasError(error.type) &&
+      (addVehicle.get('number_plate').dirty || addVehicle.get('number_plate').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <div class="row">
+      <ion-item style="width: 50%;" no-padding>
+        <ion-label floating>{{ 'COLOR' | translate }}</ion-label>
+        <ion-input formControlName="color" class='auto-location full-input'></ion-input>
+      </ion-item>
+
+      <ion-item style="width: 50%;" *ngIf="ismotorSelect">
+        <ion-label floating>{{ 'NO_OF_SEATS' | translate }}</ion-label>
+        <ion-input formControlName="total_seats" type="number" class='auto-location full-input'></ion-input>
+      </ion-item>
+    </div>
+    <div class="row">
+      <ng-container *ngFor="let error of error_messages.color">
+        <div class="error-message" *ngIf="addVehicle.get('color').hasError(error.type) &&
+        (addVehicle.get('color').dirty || addVehicle.get('color').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+
+      <!-- <ng-container *ngFor="let error of error_messages.total_seats">
+        <div style="margin-left: 15% !important;" class="error-message" *ngIf="addVehicle.get('total_seats').hasError(error.type) &&
+        (addVehicle.get('total_seats').dirty || addVehicle.get('total_seats').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container> -->
+    </div>
+    <!-- <ion-item no-padding>
+      <ion-label floating>{{ 'PRICE_PER_SEAT' | translate }}</ion-label>
+      <ion-input formControlName="price_Seat" type="number" class='auto-location full-input'></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.price_Seat">
+        <div class="error-message" *ngIf="addVehicle.get('price_Seat').hasError(error.type) &&
+      (addVehicle.get('price_Seat').dirty || addVehicle.get('price_Seat').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div> -->
+    <div margin>
+      <button class="register-btn" full round ion-button style="margin-top: 10%;" (click)="next()"
+        [disabled]="!addVehicle.valid">{{ 'NEXT' | translate }}
+        <ion-spinner *ngIf="isLoading" margin-left name="ios" style="color: white !important;"></ion-spinner>
+      </button>
+    </div>
+  </form>
+</ion-content>

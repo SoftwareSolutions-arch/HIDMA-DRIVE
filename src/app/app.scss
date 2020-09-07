@@ -1,0 +1,75 @@
+.text-grey {
+  color: #999;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-blue {
+  color: #198A92;
+}
+
+.text-red {
+  color: red;
+}
+
+.background-blue {
+  background: #198A92;
+}
+
+.small-text {
+  font-size: 1.2rem;
+}
+
+.medium-text {
+  font-size: 1.4rem;
+}
+
+.big-text {
+  font-size: 1.7rem;
+}
+
+.bold-font {
+  font-weight: bold
+}
+
+.toolbar {
+  min-height: 70px ! important;
+}
+
+.payment-details {
+  margin-left: 20px;
+}
+
+.total-amount {
+  position: absolute;
+  right: 20px;
+}
+span.back-button-text.back-button-text-ios {
+  font-size: 0px !important;
+}
+.error-message {
+  color: red;
+  text-align: left;
+  // margin-left: 20pt;
+  margin-top: 5pt;
+  font-size: 12px;
+}
+
+.bigger-text {
+  font-size: 1.9rem;
+}
+
+
+ion-spinner.spinner-ios line {
+  stroke: white;
+}
+
+ion-spinner.spinner-md line {
+  stroke: white;
+}

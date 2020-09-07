@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding-left no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-blue medium-text" name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ 'HOME' | translate }}</ion-title>
+    <ion-buttons end>
+      <button (click)="openNotifications()" padding ion-button icon-only>
+        <ion-icon class="text-blue medium-text" name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <span>
+    <div #mapElement id="mapElement" style="height:100%;width: 100%;">
+    </div>
+    <div class="btn-center">
+      <div class="tap-start" *ngIf=isTripStart>
+        <button [disabled]="enableTapToStart" class="background-blue medium-text" round ion-button
+                (click)="startTrip()">{{ 'TAP_TO_START' | translate }}</button>
+      </div>
+    </div>
+
+    <div class="btn-center">
+      <div class="tap-start" *ngIf=isTripEnd>
+        <button class="background-blue medium-text" round ion-button
+                (click)="endTrip()">{{ 'TRIP_END' | translate }}</button>
+      </div>
+    </div>
+
+  </span>
+</ion-content>

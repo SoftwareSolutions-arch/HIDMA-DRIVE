@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{ 'VEHICLE_DOCUMENT' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="margin-top: 5%;">
+  <ion-list>
+    <div class="rounded-input-div">
+      <ion-item>
+        <div class="rounded-input-div">
+          <div class="row">
+            <label>{{ 'RC_BOOK' | translate }}</label>
+            <div *ngIf="!this.isRCUpload">
+              <label for="RCid" class="upload_btn">{{ 'UPLOAD' | translate }}</label>
+            </div>
+            <div *ngIf="this.isRCUpload">
+              <label for="RCid" class="upload_btn" style="float: right;">
+                <div class="text-black medium-text" style="font-size: 1.3rem;">
+                  {{this.rCfiledetails.name}}
+                </div>
+                <ion-icon ios="ios-trash" md="md-trash" class="trash-icon" (click)="deleteRcImage()"></ion-icon>
+              </label>
+            </div>
+            <input type="file" (change)="RcCertificate($event)" name="RCid" id="RCid" class="fileInput" />
+          </div>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <div class="rounded-input-div">
+          <div class="row">
+            <label>{{ 'INSURANCE_POLICY' | translate }}</label>
+            <div *ngIf="!this.isInsuranceUpload">
+              <label for="insuranceid" class="upload_btn">{{ 'UPLOAD' | translate }}</label>
+            </div>
+            <div *ngIf="this.isInsuranceUpload">
+              <label for="insuranceid" class="upload_btn" style="float: right;">
+                <div class="text-black medium-text" style="font-size: 1.3rem;">
+                  {{this.inSurancefiledetails.name}}
+                </div>
+                <ion-icon ios="ios-trash" md="md-trash" class="trash-icon" (click)="deleteInsuranceImage()"></ion-icon>
+              </label>
+            </div>
+            <input type="file" (change)="inSuranceCertificate($event)" name="insuranceid" id="insuranceid"
+              class="fileInput" />
+          </div>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <div class="rounded-input-div">
+          <div class="row">
+            <label>{{ 'OWNER_CERTIFICATE' | translate }}</label>
+            <div *ngIf="!this.isownerUpload">
+              <label for="ownerid" class="upload_btn">{{ 'UPLOAD' | translate }}</label>
+            </div>
+            <div *ngIf="this.isownerUpload">
+              <label for="ownerid" class="upload_btn" style="float: right;">
+                <div class="text-black medium-text" style="font-size: 1.3rem;">
+                  {{this.ownerfiledetails.name}}
+                </div>
+                <ion-icon ios="ios-trash" md="md-trash" class="trash-icon" (click)="deleteOwnerImage()"></ion-icon>
+
+              </label>
+            </div>
+            <input type="file" (change)="ownerCertificate($event)" name="ownerid" id="ownerid" class="fileInput" />
+          </div>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <div class="rounded-input-div">
+          <div class="row">
+            <label>{{ 'PUC' | translate }}</label>
+            <div *ngIf="!this.isPUCUpload">
+              <label for="pucid" class="upload_btn">{{ 'UPLOAD' | translate }}</label>
+            </div>
+            <div *ngIf="this.isPUCUpload">
+              <label for="pucid" class="upload_btn" style="float: right;">
+                <div class="text-black medium-text" style="font-size: 1.3rem;">
+                  {{this.pucfiledetails.name}}
+                </div>
+                <ion-icon ios="ios-trash" md="md-trash" class="trash-icon" (click)="deletePucImage()"></ion-icon>
+
+              </label>
+            </div>
+            <input type="file" (change)="pucCertificate($event)" name="pucid" id="pucid" class="fileInput" />
+          </div>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
+  <p class="tems_policy">{{ 'BY_CONTINUING' | translate }}</p>
+  <p class="tems_policy">
+    <span style="color: black;">
+      {{ 'TERMS_CONDITIONS' | translate }}
+    </span> {{ 'AND' | translate }}
+    <span style="color: black;">
+      {{ 'PRIVACY_POLICY' | translate }}
+    </span>
+  </p>
+  <button class="next-btn" full round ion-button (click)="next()">{{ 'NEXT' | translate }}
+    <!-- <ion-spinner *ngIf="isLoading" margin-left name="ios" style="color: white !important;"></ion-spinner> -->
+  </button>
+</ion-content>

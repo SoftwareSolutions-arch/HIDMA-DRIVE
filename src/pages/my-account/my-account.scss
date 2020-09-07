@@ -1,0 +1,53 @@
+page-my-account {
+  .top-div {
+      color: white;
+      position: absolute;
+      font-size: 3rem;
+      background: #282f39;
+      width: -webkit-fill-available;
+      height: 30%;
+    }
+
+    .center-div {
+      background: white;
+      margin-left: 5%;
+      margin-right: 5%;
+      border-radius: 5%;
+      position: relative;
+      margin-top: 25%;
+      margin-bottom: 30px;
+    }
+
+    .img-src {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -6rem;
+    }
+
+    .edit-profile {
+      text-align: center;
+      width: 50%;
+      margin-top: 5%;
+      font-weight: bold;
+    }
+
+    .logout {
+      text-align: center;
+      margin-top: 5%;
+      margin-left: 8pt;
+      font-weight: bold;
+    }
+
+
+    .saparator {
+      background: #dedede;
+      height: 1px;
+      width: 100%;
+    }
+.verticle-saparator{
+  background: #dedede;
+  height: auto;
+  width: 1px;
+}
+}

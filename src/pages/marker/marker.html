@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding-left no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-blue medium-text" name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>marker</ion-title>
+    <ion-buttons end>
+      <button (click)="openNotifications()" padding ion-button icon-only>
+        <ion-icon class="text-blue medium-text" name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div #mapElement id="mapElement" style="height:100%;width: 100%;">
+  </div>
+</ion-content>

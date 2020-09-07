@@ -1,0 +1,75 @@
+page-vehicle-document {
+  button.btn-with-icon {
+    background: white;
+    color: #55a9af;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .upload_btn {
+    color: #55a9af;
+    position: absolute;
+    right: 0px;
+  }
+
+  .rounded-input.item.item-block.item-md {
+    padding-bottom: 10px;
+  }
+
+  .rounded-input.item.item-block.item-ios {
+    padding-bottom: 10px;
+  }
+
+
+  .tems_policy {
+    text-align: center;
+    color: #808080ad;
+    font-size: 1.2rem;
+  }
+
+  .next-btn {
+    margin-top: 10%;
+    background: gray;
+  }
+
+  .fileInput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .fileInput label {
+    color: #717171;
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+    padding: .5em 1em;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  ion-item.item.item-block.item-md {
+    padding: 8px;
+  }
+
+  ion-item.item.item-block.item-ios {
+    padding: 8px;
+  }
+
+  .text-black.medium-text {
+    width: 112px;
+    margin-right: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .trash-icon{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin-right: 1%;
+  }
+}

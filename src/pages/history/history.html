@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding-left no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-blue medium-text" name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ 'HISTORY' | translate }}</ion-title>
+    <ion-buttons end>
+      <button (click)="openNotifications()" padding ion-button icon-only>
+        <ion-icon class="text-blue medium-text" name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="historyDetails.length==0">
+    <p class="text-history big-text">{{ 'NO_BOOKING_HISTORY_AVAILBLE' | translate }}</p>
+  </div>
+  <div *ngIf="historyDetails.length>0">
+    <ion-label class="title_content">{{ 'TOTAL_BOOKINGS' | translate }}</ion-label>
+    <ion-item (click)="openHistoryDetails(historyItems)" *ngFor="let historyItems of historyDetails">
+      <div class="row" padding>
+        <div class="left-item">
+          <span class="big-text">3:32</span><br>
+          <span class="ante-meridiem">{{ 'AM' | translate }}</span>
+        </div>
+        <div class="right-item">
+          <span class="big-text">{{historyItems.name}}</span>
+          <span class="pay_card">{{ 'PAID_BY' | translate }} {{historyItems.payment_mode}}</span>
+        </div>
+        <div class="end-item">
+          <span class="big-text">{{historyItems.amount}}</span>
+        </div>
+      </div>
+    </ion-item>
+  </div>
+</ion-content>

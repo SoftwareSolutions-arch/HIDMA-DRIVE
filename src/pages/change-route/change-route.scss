@@ -1,0 +1,46 @@
+page-change-route {
+    .checkbox .checkbox-icon {
+        height: 18px;
+        width: 18px;
+        border-radius: 0 !important;
+        border-width: 2px !important;
+        border-color: #222222a8 !important;
+      }
+    
+      .checkbox .checkbox-checked .checkbox-inner {
+        border-color: black !important;
+        left: 5px !important;
+        top: 2px;
+      }
+    
+      .checkbox .checkbox-checked {
+        background-color: white !important;
+        border-color: #5d5e5d;
+        border-width: 1px !important;
+      }
+    
+      ion-label {
+        margin: 0 !important;
+      }
+    
+      .location-option {
+        padding: 5px;
+        color: gray;
+        margin-left: 10px;
+      }
+    
+      .header-function{
+        color: #999;
+        font-size: 1.4rem;
+        margin-left: 10pt;
+        margin-top: 20pt;
+      }
+
+      .btn-discount {
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+        padding-top: 3% !important;
+        padding-bottom: 3% !important;
+        margin-top: 10px !important;
+    }
+}

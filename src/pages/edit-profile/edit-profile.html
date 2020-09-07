@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding-left no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-blue medium-text" name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ 'EDIT_PROFILE' | translate }}</ion-title>
+    <ion-buttons end>
+      <button (click)="openNotifications()" style="color: white;" padding ion-button icon-only>
+        <ion-icon class="text-blue" name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <div class="row">
+        <!-- <img src="../../assets/img/userlogo.png"> -->
+        <img class="user-img" [src]="this.userImage && this.userImage!==''?this.userImage:'assets/img/user-default.png'"> 
+        <button (click)="presentActionSheet()" padding class="change-btn" round
+          ion-button>{{ 'CHANGE' | translate }}</button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-label floating>{{ 'FIRST_NAME' | translate }}</ion-label>
+    <ion-input class='auto-location full-input' [(ngModel)]="userData.firstName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>{{ 'LAST_NAME' | translate }}</ion-label>
+    <ion-input class='auto-location full-input' [(ngModel)]="userData.lastName"></ion-input>
+  </ion-item>
+
+  <ion-item >
+    <ion-label>
+      <ion-img class="country-image" src={{this.countryFlagImage}}></ion-img>
+      <!-- <ion-icon style="padding-left: 45pt;padding-top: 3.2pt;" ios="ios-square-outline" md="ios-square-outline">
+      </ion-icon> -->
+    </ion-label>
+    <ion-select [(ngModel)]="userData.countryCode" placeholder="+91" style="margin-left: 10%;">
+      <ion-option *ngFor="let employee of countryCodeList" (ionSelect)="getFlagdetails(employee)">
+        {{this.employee.number}}
+      </ion-option>
+    </ion-select>
+    <ion-input style="padding-left: 16px;" class='auto-location full-input' type="number" clearInput
+      placeholder="{{ 'MOBILE_NO' | translate }}" [(ngModel)]="userData.mobileNumber">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
+    <ion-input class='auto-location full-input' [(ngModel)]="userData.email"></ion-input>
+  </ion-item>
+
+  <button [disabled]="!isSaveData" style="background-color: #198a92 !important;margin-top: 20%;padding: 20px;"
+    (click)="saveUserData()" class="save-btn" full round ion-button>{{ 'SAVE_EXIT' | translate }}
+    <ion-spinner *ngIf="isLoading" margin-left name="ios"></ion-spinner>
+  </button>
+</ion-content>

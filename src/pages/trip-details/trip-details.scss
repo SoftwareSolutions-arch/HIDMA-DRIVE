@@ -1,0 +1,64 @@
+page-trip-details {
+  .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #488aff;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .square {
+    height: 10px;
+    width: 10px;
+    background-color: #2ec95c;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .amount {
+    margin-left: -16%;
+  }
+
+  .amount-details {
+    width: 90%;
+    margin-top: -2.5%;
+    margin-left: 7%;
+  }
+
+  .time-distance {
+    padding: 10px;
+  }
+
+  .left-div {
+    border-top: 1px solid #80808078;
+    border-bottom: 1px solid #80808078;
+    border-right: 1px solid #80808078;
+    padding: 10px;
+  }
+
+  .right-div {
+    border-top: 1px solid #80808078;
+    border-bottom: 1px solid #80808078;
+    padding: 10px;
+  }
+
+  .receipt-details {
+    padding-bottom: 3%;
+    padding-top: 3%;
+    margin-left: 8%;
+  }
+
+  .row.header {
+    width: 100%;
+  }
+
+  .table {
+    margin: 16px;
+    margin-top: 16%;
+  }
+
+  .table-bottom{
+    margin: 18px;
+  }
+}

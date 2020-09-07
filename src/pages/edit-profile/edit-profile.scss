@@ -1,0 +1,31 @@
+page-edit-profile {
+  .change-btn {
+    margin: auto;
+    margin-left: 10% !important;
+    background: none;
+    color: black;
+    padding: 10px;
+    width: 35%;
+    border: 1px solid gray;
+  }
+
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+    border-bottom:0px !important
+  }
+
+  .list-ios > .item-block:first-child{
+    border-top:0px !important
+  }
+  
+  .country-image {
+    width: 20px !important;
+    height: 17px;
+  }
+
+  .country-image {
+    background: none;
+    position: absolute;
+    top: 35%;
+    left: 6%;
+  }
+}

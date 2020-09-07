@@ -1,0 +1,132 @@
+<ion-content padding>
+  <div (click)="backPage()" style="float: left;zoom: 2;">
+    <ion-icon class="big-text bold-font" ios="ios-arrow-round-back-outline" md="ios-arrow-round-back-outline">
+    </ion-icon>
+  </div>
+  <div (click)="goLoginPage()">
+    <div class="big-text bold-font login-btn" style="float: right !important;margin:6px">
+      {{ 'LOGIN_NOW' | translate }}
+    </div>
+  </div>
+
+  <div class="text-create">
+    <p>{{ 'CREATE_ACCOUNT' | translate }}</p>
+  </div>
+
+  <form [formGroup]="createForm">
+    <ion-item no-padding>
+      <ion-label floating>{{ 'FIRST_NAME' | translate }}</ion-label>
+      <ion-input class='auto-location full-input' formControlName="firstName"></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.firstName">
+        <div class="error-message" *ngIf="createForm.get('firstName').hasError(error.type) &&
+        (createForm.get('firstName').dirty || createForm.get('firstName').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item no-padding>
+      <ion-label floating>{{ 'LAST_NAME' | translate }}</ion-label>
+      <ion-input class='auto-location full-input' formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <div>
+      <ng-container *ngFor="let error of error_messages.lastName">
+        <div class="error-message" *ngIf="createForm.get('lastName').hasError(error.type) &&
+        (createForm.get('lastName').dirty || createForm.get('lastName').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item no-padding>
+      <ion-label>
+        <ion-img class="country-image" src={{this.countryFlagImage}}></ion-img>
+      </ion-label>
+      <ion-select formControlName="countryCode" placeholder="+91" style="margin-left: 10%;">
+        <ion-option *ngFor="let flagList of countryCodeList" (ionSelect)="getFlagdetails(flagList)">
+          {{this.flagList.shortname}}({{this.flagList.countrycode}})
+        </ion-option>
+      </ion-select>
+      <ion-input style="padding-left: 16px;" class='auto-location full-input' type="number" clearInput
+        placeholder="{{ 'MOBILE_NO' | translate }}" formControlName="mobileNumber" (focusout)="verifyMobileNumber()">
+      </ion-input>
+    </ion-item>
+    <span class="check-mobile medium-text text-red">{{this.isMobilenumberExist}}</span>
+    <ion-item no-padding>
+      <ion-label floating>{{ 'EMAIL_ADDRESS' | translate }}</ion-label>
+      <ion-input inputmode="email" type="email" name="email" class='auto-location full-input' formControlName="email"
+        (focusout)="verifyEmailNumber()">
+      </ion-input>
+    </ion-item>
+    <span class="check-mobile medium-text text-red">{{this.isEmailExist}}</span>
+    <ion-item no-padding>
+      <ion-label floating>{{ 'HOME_ADDRESS' | translate }}</ion-label>
+      <ion-input class='auto-location full-input' formControlName="homeAddress"></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.homeAddress">
+        <div class="error-message" *ngIf="createForm.get('homeAddress').hasError(error.type) &&
+          (createForm.get('homeAddress').dirty || createForm.get('homeAddress').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item no-padding>
+      <ion-label floating>{{ 'DRIVING_LICENCE_NUMBER' | translate }}</ion-label>
+      <ion-input class='auto-location full-input' formControlName="driving_licence_no" type="text"></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.driving_licence_no">
+        <div class="error-message" *ngIf="createForm.get('driving_licence_no').hasError(error.type) &&
+          (createForm.get('driving_licence_no').dirty || createForm.get('driving_licence_no').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item no-padding>
+      <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+      <ion-input class='auto-location full-input' formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.password">
+        <div class="error-message" *ngIf="createForm.get('password').hasError(error.type) &&
+          (createForm.get('password').dirty || createForm.get('password').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item no-padding>
+      <ion-label floating>{{ 'COMPANY_NAME' | translate }}</ion-label>
+      <ion-select formControlName="companyName">
+        <ion-option *ngFor="let data of this.companyData" (ionSelect)="getCompanydetails(data)">
+          {{data.name_of_the_company}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let error of error_messages.companyName">
+        <div class="error-message" *ngIf="createForm.get('companyName').hasError(error.type) &&
+          (createForm.get('companyName').dirty || createForm.get('companyName').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <p class="tems_policy">{{ 'BY_CONTINUING' | translate }}</p>
+    <p class="tems_policy">
+      <span style="color: black;" (click)="termsAndconditions()">
+        {{ 'TERMS_CONDITIONS' | translate }}
+      </span> {{ 'AND' | translate }}
+      <span style="color: black;" (click)="privacyPolicy()">
+        {{ 'PRIVACY_POLICY' | translate }}
+      </span>
+    </p>
+    <div margin>
+      <button (click)="register()" class="register-btn" full round ion-button style="margin-top: 10%;"
+        [disabled]="!createForm.valid">{{ 'REGISTER' | translate }}</button>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,70 @@
+page-home {
+  .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #488aff;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .square {
+    height: 10px;
+    width: 10px;
+    background-color: #2ec95c;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .item-ios.item-block .item-inner {
+    border-bottom: 0px !important
+  }
+
+  .main-div {
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+  }
+
+  .label-md {
+    margin: 0px !important;
+  }
+
+  .label-ios {
+    margin: 0px !important;
+  }
+
+  .col {
+    padding: 0;
+  }
+
+  .fab-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+  }
+
+  .text-center {
+    text-align: center;
+    margin-top: 18%;
+  }
+
+  .text-top {
+    text-align: center;
+    margin-top: 50%;
+    font-size: 1.4em;
+  }
+
+  button.refresh-btn {
+    margin-right: 16px;
+    float: right;
+  }
+
+  .current-container {
+    position: relative;
+    width: 50px;
+    margin-left: 82%;
+    margin-top: -15%;
+  }
+}

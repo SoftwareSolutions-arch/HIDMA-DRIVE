@@ -1,0 +1,34 @@
+page-create-account {
+  .tems_policy {
+    text-align: center;
+    color: #808080ad;
+    font-size: 1.2rem;
+  }
+
+  .country-image {
+    width: 20px !important;
+    height: 17px;
+  }
+
+  .country-image {
+    background: none;
+    position: absolute;
+    top: 35%;
+    left: 6%;
+  }
+
+  .error-message {
+    margin-left: 0pt !important;
+  }
+
+  span.check-mobile {
+    // float: right;
+    margin-top: 10px;
+  }
+
+  .text-create {
+    margin-top: 20%;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}

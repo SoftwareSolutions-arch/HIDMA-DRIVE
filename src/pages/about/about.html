@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>About</ion-title>
+    <ion-buttons end>
+      <button (click)="openNotifications()" style="color: white;" padding ion-button icon-only>
+        <ion-icon class="text-blue" name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="top-div">
+    {{this.aboutContent}}
+  </div>
+
+  <div class="top-div" style="margin-top: 16px;">
+    <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+    when an unknown printer took a galley of type and scrambled it to make a type specimen book. -->
+  </div>
+</ion-content>

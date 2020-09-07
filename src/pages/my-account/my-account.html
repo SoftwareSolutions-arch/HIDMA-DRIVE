@@ -1,0 +1,43 @@
+<ion-content style="background: #e8eeef;">
+  <div class="top-div" padding (click)="back()">
+    <ion-icon class="my_button" name="ios-arrow-round-back-outline"></ion-icon>
+  </div>
+  <div padding class="center-div">
+    <!-- <img class="img-src" src="../../assets/img/userlogo.png"> -->
+    <img class="user-img" [src]="this.userData.image && this.userData.image!==''?this.userData.image:'assets/img/userlogo.png'"> 
+    <h1 class="bold-font" style="text-align: center;">{{this.userData.firstName}} {{this.userData.lastName}}</h1><br>
+    <div class="saparator"></div>
+    <div class="row">
+      <button class="edit-profile large-text" ion-button clear (click)="editProfile()">{{ 'EDIT_PROFILE' | translate }}</button>
+      <div class="verticle-saparator"></div>
+      <button class="logout large-text" ion-button clear (click)="logOut()">{{ 'LOGOUT' | translate }}</button>
+    </div>
+  </div>
+
+  <h4 class="big-text bold-font" margin>{{ 'PERSONAL_INFO' | translate }}</h4>
+  <ion-list no-lines>
+    <ion-item style="padding: 5px;">
+      <ion-icon class="text-blue" style="margin-left: 5%;" ios="ios-phone-portrait-outline"
+        md="ios-phone-portrait-outline"></ion-icon>
+      <span style="margin-left: 5%;">{{this.userData.mobile}}</span>
+    </ion-item>
+    <ion-item no-lines style="padding: 5px;">
+      <ion-icon class="text-blue" style="margin-left: 5%;" ios="ios-mail-outline" md="ios-mail-outline"></ion-icon>
+      <span style="margin-left: 5%;">{{this.userData.email}}</span>
+    </ion-item>
+    <ion-item no-lines style="padding: 5px;">
+      <ion-icon class="text-blue" style="margin-left: 5%;" ios="ios-globe-outline" md="ios-globe-outline"></ion-icon>
+      <span style="margin-left: 5%;">English and Spanish</span>
+    </ion-item>
+    <ion-item no-lines style="padding: 5px;">
+      <ion-icon class="text-blue" style="margin-left: 5%;" ios="ios-contact-outline" md="ios-contact-outline">
+      </ion-icon>
+      <span style="margin-left: 5%;">{{this.userData.user_address}}</span>
+    </ion-item>
+    <!-- <ion-item no-lines style="padding: 5px;">
+      <ion-icon class="text-blue" style="margin-left: 5%;" ios="ios-phone-portrait-outline"
+        md="ios-phone-portrait-outline"></ion-icon>
+      <span style="margin-left: 5%;">18-12-1996</span>
+    </ion-item> -->
+  </ion-list>
+</ion-content>

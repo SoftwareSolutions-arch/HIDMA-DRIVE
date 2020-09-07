@@ -1,0 +1,79 @@
+page-notification {
+  .change-btn {
+    background: none;
+    color: black;
+    width: auto;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border: 1px solid gray;
+    float: right;
+    margin-left: 2%;
+  }
+
+  .left-div {
+    display: inherit;
+    width: 23%;
+  }
+
+  .right-div {
+    margin-top: 1%;
+    width: 77%;
+  }
+
+  .booking-details {
+    margin-top: 2%;
+    position: absolute;
+    display: inherit;
+  }
+
+  .accept-btn {
+    background: none;
+    color: black;
+    border: 1px solid gray;
+    right: 0px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    float: right;
+  }
+
+  .accept-btn:active,
+  .change-btn:active,
+  .accept-btn:focus,
+  .change-btn:focus {
+    background-color: #198A92;
+    color: white;
+  }
+
+  .time-details {
+    position: absolute;
+    right: 0px;
+    top: 6px;
+  }
+
+  span.booking-details.text-grey.medium-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
+
+  span.user-name.medium-text {
+    margin-left: 10px;
+  }
+
+  .toolbar-title.toolbar-title-md {
+    margin-right: 40px;
+  }
+
+  .toolbar-title.toolbar-title-ios {
+    margin-right: 40px;
+  }
+
+  .text-history {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 2px dashed #2c2b2a;
+    margin-top: 50%;
+  }
+}

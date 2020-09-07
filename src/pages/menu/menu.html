@@ -1,0 +1,41 @@
+<ion-menu [content]="content" type="overlay">
+  <ion-content>
+    <ion-list class="menu-list">
+      <div style="background-color: #282f39 !important;padding-bottom: 16px;">
+        <div class="row">
+          <ion-icon style="margin-top: 16px;font-size: 2.5rem;" padding menuClose class="text-white big-size"
+            name="close" text-left></ion-icon>
+          <ion-label style="margin-top: 33px;font-size: 1.7rem;" class="text-white "
+            (click)="openPage('EditProfilePage')" text-right margin menuClose>
+            {{ 'EDIT_PROFILE' | translate }}</ion-label>
+        </div>
+        <img class="user-img" [src]="this.image && this.image!==''?this.image:'assets/img/user-default.png'">
+        <h3 class="text-white medium-text" text-center>{{userFirstname}} {{userLastname}}</h3>
+      </div>
+      <ion-item (click)="openHomePage()" menuClose margin-top>
+        <h3 class="text-black big-size">{{ 'HOME' | translate }}</h3>
+        <ion-icon ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline" item-right></ion-icon>
+      </ion-item>
+      <ion-item (click)="openPage('HistoryPage')" menuClose margin-top>
+        <h3 class="text-black big-size">{{ 'BOOKING_HISTORY' | translate }}</h3>
+        <ion-icon ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline" item-right></ion-icon>
+      </ion-item>
+      <span *ngIf="this.value==1">
+        <ion-item (click)="createRoute()" menuClose margin-top>
+          <h3 class="text-black big-size">{{ 'CREATE_ROUTE' | translate }}</h3>
+          <ion-icon ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline" item-right></ion-icon>
+        </ion-item>
+      </span>
+      <ion-item (click)="openPage('SettingsPage')" menuClose margin-top>
+        <h3 class="text-black big-size">{{ 'SETTINGS' | translate }}</h3>
+        <ion-icon ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline" item-right></ion-icon>
+      </ion-item>
+
+      <ion-item (click)="logout()" menuClose margin-top>
+        <h3 class="text-black big-size">{{ 'LOGOUT' | translate }}</h3>
+        <ion-icon ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline" item-right></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

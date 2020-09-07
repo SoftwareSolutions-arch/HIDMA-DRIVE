@@ -1,0 +1,58 @@
+<ion-header style="background: white;">
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding-left no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-blue medium-text" name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ 'SETTINGS' | translate }}</ion-title>
+    <ion-buttons end>
+      <button (click)="openPage('NotificationPage')" style="color: white;" padding ion-button icon-only>
+        <ion-icon class="text-blue" name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background: #e8eeef;">
+  <ion-list>
+    <ion-item (click)="openPage('MyAccountPage')">
+      <ion-label class="my-profile">{{ 'MY_PROFILE' | translate }}
+        <ion-icon class="icon-foward" ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="openPage('ChangeVechiclePage')">
+      <ion-label class="my-profile">{{ 'CHANGE_VEHICLE' | translate }}
+        <ion-icon class="icon-foward" ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+      </ion-label>
+    </ion-item>
+    <span *ngIf="this.value==1">
+      <ion-item (click)="changeRoute()">
+        <ion-label class="my-profile">{{ 'CHANGE_ROUTE' | translate }}
+          <ion-icon class="icon-foward" ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+        </ion-label>
+      </ion-item >
+    </span>
+    <ion-item (click)="changeLanguage()">
+      <ion-label class="my-profile">{{ 'CHANGE_LANGUAGE' | translate }}
+        <ion-icon class="icon-foward" ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-label class="text-help large-text">{{ 'HELP' | translate }}</ion-label>
+  <ion-item (click)="openPage('TermsConditionsPage')">
+    <ion-label class="my-profile">{{ 'TERMS_CONDITIONS' | translate }}
+      <ion-icon class="icon-foward" ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+    </ion-label>
+  </ion-item>
+  <ion-item (click)="openPage('PrivacyPoliciesPage')">
+    <ion-label class="my-profile">{{ 'PRIVACY_POLICY' | translate }}
+      <ion-icon class="icon-foward" ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+    </ion-label>
+  </ion-item>
+  <ion-item (click)="openPage('AboutPage')">
+    <ion-label class="my-profile">{{ 'ABOUT' | translate }}
+      <ion-icon class="icon-foward" ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+    </ion-label>
+  </ion-item>
+</ion-content>
